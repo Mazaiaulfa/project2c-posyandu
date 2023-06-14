@@ -60,5 +60,3 @@ Route::get('/login', function () {
 Route::get('/inputdata', function () {
     return view('inputdata');
 });
-
-Route::post('/tambah-data-anak', 'DataAnakController@store')->name('tambah_data_anak');
