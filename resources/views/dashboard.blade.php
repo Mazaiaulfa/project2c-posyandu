@@ -285,9 +285,4 @@
     <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
     <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
   </div>
-  <footer class="bg-secondary text-body-secondary text-center py-3 fixed-bottom">
-  <div class="container">
-  Sistem informasi mahasiswa | copyright {{date("Y")}} Teknik Informatika 
   
-      </div>
-</footer>

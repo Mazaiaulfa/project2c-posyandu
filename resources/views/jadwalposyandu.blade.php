@@ -17,6 +17,7 @@
     <tr>
     <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Tahun</th>
                                 <th scope="col">Bulan</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Agenda</th>
@@ -25,21 +26,20 @@
     </tr>
   </thead>
   <tbody>
-  <tr>
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        
-                                    </td>
-                                    <td> </td>
-                                    <td class="d-flex">
-                                    <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit"><a>View</a></button>
-                                        <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView"><a>Edit</a></button>
-                                        <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete"><a>Delete</a></button>
-
-                                    </td>
-                                </tr>
+    @foreach($jadwallls as $jadwalll)
+    <tr>
+      <td>{{ $loop->iteration }}</td>
+      <td>{{ $jadwalll->tahun }}</td>
+      <td>{{ $jadwalll->bulan }}</td>
+      <td>{{ $jadwalll->tanggal }}</td>
+      <td>{{ $jadwalll->tema }}</td>
+      <td>
+      <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView"><a href="{{ route('lihat') }}">View</a></button>
+      <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit"><a>Edit</a></button>
+      <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete"><a>Delete</a></button>
+      </td>
+    </tr>
+    @endforeach
   </tbody>
 </table>
   </div>
@@ -47,12 +47,7 @@
 </div>
 </div>
 
-<footer class="bg-secondary text-body-secondary text-center py-3 fixed-bottom">
-  <div class="container">
-  Sistem informasi mahasiswa | copyright {{date("Y")}} Teknik Informatika 
-  
-      </div>
-</footer>
+
 
 <!-- Modal tambah data-->
 <div class="modal fade" id="ModalDataJadwal" tabindex="-1" aria-labelledby="ModalTambahDataJadwalLabel" aria-hidden="true">
@@ -63,24 +58,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body lg-4">
+      <form action="{{route('jadwal.store8') }}" method="post">
+    @csrf
         <div class="input-group mt-1">
+        <span class="input-group-text">Tahun</span>
+          <input type="text" name="tahun" class="form-control" placeholder="">
+        </div>
+        <div class="input-group mt-2">
         <span class="input-group-text">Bulan</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="bulan" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
         <span class="input-group-text">Tanggal</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="tanggal" class="form-control" placeholder="">
         </div>
       
         <div class="input-group mt-2">
         <span class="input-group-text">Tema</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="tema" class="form-control" placeholder="">
         </div>
-       
         </div>
       
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
         <button type="button" class="btn btn-Danger" data-bs-dismiss="modal">Batal</button>
       </div>
     </div>

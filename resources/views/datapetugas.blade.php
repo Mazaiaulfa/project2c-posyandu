@@ -17,30 +17,31 @@
     <tr>
     <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">gambar</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Level</th>
+                                <th scope="col">Alamat</th>
                                 <th scope="col">No HP</th>
                                 <th scope="col">Aksi</th>
                             </tr>
     </tr>
   </thead>
   <tbody>
-  <tr>
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        
-                                    </td>
-                                    <td> </td>
-                                    <td class="d-flex">
-                                    <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit"><a>View</a></button>
-                                        <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView"><a>Edit</a></button>
-                                        <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete"><a>Delete</a></button>
-
-                                    </td>
-                                </tr>
+    @foreach($petugasdatas as $petugasdata)
+    <tr>
+      <td>{{ $loop->iteration }}</td>
+      <td>{{ $petugasdata->gambar }}</td>
+      <td>{{ $petugasdata->nama }}</td>
+      <td>{{ $petugasdata->email }}</td>
+      <td>{{ $petugasdata->alamat }}</td>
+      <td>{{ $petugasdata->no_hp }}</td>
+      <td>
+      <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView"><a href="{{ route('lihat') }}">View</a></button>
+        <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit"><a>Edit</a></button>
+        <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete"><a>Delete</a></button>
+      </td>
+    </tr>
+    @endforeach
   </tbody>
 </table>
   </div>
@@ -48,12 +49,6 @@
 </div>
 </div>
 
-<footer class="bg-secondary text-body-secondary text-center py-3 fixed-bottom">
-  <div class="container">
-  Sistem informasi mahasiswa | copyright {{date("Y")}} Teknik Informatika 
-  
-      </div>
-</footer>
 
 
 <!-- Modal tambah data-->
@@ -65,35 +60,37 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body lg-4">
+      <form action="{{route('petugas.store6') }}" method="post">
+    @csrf
         <div class="input-group mt-1">
         <span class="input-group-text">Nama</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="nama" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
+    <span class="input-group-text">Gambar</span>
+    <input type="file" name="gambar" class="form-control" placeholder="">
+</div>
+        <div class="input-group mt-2">
         <span class="input-group-text">Email</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="email" class="form-control" placeholder="">
         </div>
       
         <div class="input-group mt-2">
-        <span class="input-group-text">Password</span>
-          <input type="text" class="form-control" placeholder="">
+        <span class="input-group-text">Alamat</span>
+          <input type="text" name="alamat" class="form-control" placeholder="">
         </div>
         <div class="input-group mt-2">
         <span class="input-group-text">No HP</span>
-          <input type="text" class="form-control" placeholder="">
-        </div>
-        <div class="input-group mt-2">
-        <span class="input-group-text">Level</span>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="no_hp" class="form-control" placeholder="">
         </div>
         </div>
       
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
         <button type="button" class="btn btn-Danger" data-bs-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>
 </div>
-
+</form>
 
