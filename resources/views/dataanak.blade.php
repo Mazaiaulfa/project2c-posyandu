@@ -107,7 +107,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Apakah Anda yakin ingin menghapus anak ini?</p>
+                <p>Apakah Anda yakin ingin menghapus data ini?</p>
             </div>
             <div class="modal-footer">
                 <form method="POST" action="{{ route('anak.destroy', $anak->id) }}">

@@ -34,11 +34,92 @@
       <td>{{ $jadwalll->tanggal }}</td>
       <td>{{ $jadwalll->tema }}</td>
       <td>
-      <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView"><a href="{{ route('lihat') }}">View</a></button>
-      <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit"><a>Edit</a></button>
-      <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete"><a>Delete</a></button>
-      </td>
+      <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView{{ $jadwalll->id }}">View</a></button>
+      <button class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $jadwalll->id }}">Edit</button>
+      <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete{{ $jadwalll->id }}">Delete</button>
+    </td>
     </tr>
+<!-- Modal edit data-->
+
+<div class="modal fade" id="ModalEdit{{ $jadwalll->id }}" tabindex="-1" aria-labelledby="ModalEdit{{ $jadwalll->id }}Label" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="ModalEdit{{ $jadwalll->id }}Label">Edit Data Anak</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               <form action="{{ route('jadwal.update', $jadwalll->id) }}" method="POST">
+                   @csrf
+                   @method('PUT')
+                   <div class="form-group">
+                       <label for="nama">Tahun</label>
+                       <input type="text" class="form-control" id="tahun" name="tahun" value="{{ $jadwalll->tahun }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="tempat_lahir">Bulan</label>
+                       <input type="text" class="form-control" id="bulan" name="bulan" value="{{ $jadwalll->bulan }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="alamat">Tanggal</label>
+                       <input type="text" class="form-control" id="tanggal" name="tanggal" value="{{ $jadwalll->tanggal }}">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="nama_ortu">Tema</label>
+                       <input type="text" class="form-control" id="tema" name="tema" value="{{ $jadwalll->tema }}">
+                   </div>
+                   <button type="submit" class="btn btn-primary">Simpan</button>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalDelete{{ $jadwalll->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalDelete{{ $jadwalll->id }}Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalDelete{{ $jadwalll->id }}Label">Konfirmasi Hapus Anak</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus data ini?</p>
+            </div>
+            <div class="modal-footer">
+                <form method="POST" action="{{ route('jadwal.destroy', $jadwalll->id) }}">
+                    @method('DELETE')
+                    @csrf
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ModalView-->
+<div class="modal fade" id="ModalView{{ $jadwalll->id }}" tabindex="-1" aria-labelledby="ModalView{{ $jadwalll->id }}Label" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="ModalView{{ $jadwalll->id }}Label">Detail Data Anak</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               <h6>Tahun: {{ $jadwalll->tahun }}</h6>
+               <p>Bulan: {{ $jadwalll->bulan }}</p>
+               <p>Tanggal: {{ $jadwalll->tanggal }}</p>
+               <p>Tema: {{ $jadwalll->tema }}</p>
+               
+           </div>
+       </div>
+   </div>
+</div>
     @endforeach
   </tbody>
 </table>

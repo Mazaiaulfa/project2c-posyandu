@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Petugas extends Model
 {
     protected $table = 'petugasdatas';
-    protected $fillable = ['gambar','nama', 'email', 'alamat', 'no_hp'];
+    protected $fillable = ['nama', 'email', 'alamat', 'no_hp'];
 
 }

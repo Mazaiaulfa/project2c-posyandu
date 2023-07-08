@@ -60,6 +60,22 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <!-- Form Input Level -->
+<div class="row mb-3">
+    <label for="level" class="col-md-4 col-form-label text-md-end">{{ __('Level') }}</label>
+    <div class="col-md-6">
+        <select id="level" class="form-control @error('level') is-invalid @enderror" name="level" required>
+            <option value="admin" {{ old('level') == 'admin' ? 'selected' : '' }}>Admin</option>
+            <option value="user" {{ old('level') == 'user' ? 'selected' : '' }}>User</option>
+        </select>
+        @error('level')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

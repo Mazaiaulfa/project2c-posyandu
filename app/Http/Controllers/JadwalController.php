@@ -27,4 +27,35 @@ class JadwalController extends Controller
     // Redirect atau kembalikan respon yang sesuai
     return redirect()->back()->with('success', 'Data ibu berhasil disimpan.');
 }
+public function edit3($id)
+{
+    $imunisasi = Jadwal::findOrFail($id);
+    return view('jadwalposyandu', compact('jadwal'));
+}
+
+public function update3(Request $request, $id)
+{
+    $jadwalll = Jadwal::findOrFail($id);
+
+    $jadwalll->tahun = $request->input('tahun');
+    $jadwalll->bulan = $request->input('bulan');
+    $jadwalll->tanggal = $request->input('tanggal');
+    $jadwalll->tema = $request->input('tema');
+
+    $jadwalll->save();
+
+    return redirect()->back()->with('success', 'Data anak berhasil disimpan.');
+}
+public function destroy3($id)
+{
+    $jadwalll = Jadwal::findOrFail($id);
+    $jadwalll->delete();
+
+    return redirect()->back()->with('success', 'Data berhasil dihapus');
+}
+public function show3($id)
+{
+    $jadwalll = Jadwal::findOrFail($id);
+    return view('jadwal.show', compact('jadwal'));
+}
 }

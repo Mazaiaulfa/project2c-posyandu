@@ -1,4 +1,6 @@
 @extends('layout.master')
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -166,8 +168,7 @@
       <h1 class="fw-light">Web Posyandu</h1>
       <p class="lead text-body-secondary">Posyandu adalah singkatan dari "Pos Pelayanan Terpadu". Web Posyandu adalah sebuah website yang digunakan untuk memberikan informasi dan layanan terkait posyandu, seperti jadwal kegiatan posyandu, data anak balita, serta informasi kesehatan dan gizi.</p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Selengkapnya</a>
-        <a href="#" class="btn btn-secondary my-2">Hubungi Kami</a>
+       
       </p>
     </div>
   </div>
@@ -182,11 +183,9 @@
           <div class="card shadow-sm">
           <img class="card-img-top" src="{{ URL::to('/images/5.png') }}" alt="" width="100%" height="100%">
           <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -197,11 +196,9 @@
           <div class="card shadow-sm">
           <img class="card-img-top" src="{{ URL::to('/images/4.png') }}" alt="" width="100%" height="100%">
           <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -212,11 +209,9 @@
           <div class="card shadow-sm">
           <img class="card-img-top" src="{{ URL::to('/images/6.png') }}" alt="" width="100%" height="100%">  
         <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -228,11 +223,9 @@
           <div class="card shadow-sm">
           <img class="card-img-top" src="{{ URL::to('/images/1.png') }}" alt="" width="100%" height="100%"> 
         <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -243,11 +236,11 @@
           <div class="card shadow-sm">
           <img class="card-img-top" src="{{ URL::to('/images/2.png') }}" alt="" width="100%" height="100%";>
           <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
+             
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -256,33 +249,21 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-          <img class="card-img-top" src="{{ URL::to('/images/3.png') }}" alt="" width="100%" height="100%"> 
-              <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <img class="card-img-top" src="{{ URL::to('/images/3.png') }}" alt="" width="100%" height="100%";>
+          <div class="card-body">
+              <p class="card-text"></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-
-        
+    </div>
       </div>
     </div>
   </div>
 
 </main>
 
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-  

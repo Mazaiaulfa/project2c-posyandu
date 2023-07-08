@@ -35,6 +35,7 @@
       <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete{{ $ibu->id }}">Delete</button>
       </td>
     </tr>
+
 <!-- Modal edit data-->
 
 <div class="modal fade" id="ModalEdit{{ $ibu->id }}" tabindex="-1" aria-labelledby="ModalEdit{{ $ibu->id }}Label" aria-hidden="true">
@@ -201,7 +202,6 @@
           <input type="text" name="keterangan" class="form-control" placeholder="">
         </div>
         </div>
-      
         <div class="modal-footer">
       <button type="submit" class="btn btn-primary" id="btnSimpan">Simpan</button>
       <button type="button" class="btn btn-Danger" data-bs-dismiss="modal" id="btnBatal">Batal</button>
@@ -210,34 +210,4 @@
   </div>
 </div>
 </form>
-<script>
-$(document).ready(function() {
-  // Mengaktifkan tindakan saat tombol "Simpan" diklik
-  $("#btnSimpan").click(function() {
-    // Tambahkan tindakan yang sesuai di sini
-    console.log("Tombol Simpan diklik");
-    // Contoh: Mengirim data ke server menggunakan AJAX
-    $.ajax({
-      url: "/simpan-data-ibu",
-      method: "POST",
-      data: { nama: $("#inputNama").val() }, // Contoh mengambil nilai input dengan id "inputNama"
-      success: function(response) {
-        console.log("Data berhasil disimpan");
-        // Lakukan tindakan lain setelah data berhasil disimpan
-      },
-      error: function() {
-        console.log("Terjadi kesalahan saat menyimpan data");
-        // Lakukan tindakan lain jika terjadi kesalahan
-      }
-    });
-  });
 
-  // Mengaktifkan tindakan saat tombol "Batal" diklik
-  $("#btnBatal").click(function() {
-    // Tambahkan tindakan yang sesuai di sini
-    console.log("Tombol Batal diklik");
-    // Contoh: Mengosongkan nilai input
-    $("#inputNama").val("");
-  });
-});
-</script>
